@@ -10,7 +10,7 @@ public class Application {
         System.out.println(kotik1);
         kotik2.liveAnotherDay();
 
-        if (kotik1.getMeow().equals(kotik2.getMeow())){
+        if (kotik1.getMeow().equals(kotik2.getMeow())) {
             System.out.println("Котики разговаривают одинаково");
         }
         else {

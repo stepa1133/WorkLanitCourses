@@ -60,7 +60,7 @@ public class Kotik {
     }
     //----------------------------------------------------------------------------------------------------------------------
 //Методы
-    public boolean play(){            //Играть
+    public boolean play() {            //Играть
         if(satiety <= 0){
             return false;
         }
@@ -123,37 +123,32 @@ public class Kotik {
                 if(!play()) {
                     System.out.println("Котик не будет играть, он голоден. Кормим котика");
                     eat();
-                    play();
                 }
-                break;
+            break;
             case 2:
                 if(!sleep()) {
                     System.out.println("Котик не будет спать, он голоден. Кормим котика");
                     eat();
-                    sleep();
                 }
-                break;
+            break;
             case 3:
                 if(!chaseMouse()) {
                     System.out.println("Котик не будет охотиться на мышь, он голоден. Кормим котика");
                     eat();
-                    chaseMouse();
                 }
-                break;
+            break;
             case 4:
                 if(!wash()) {
                     System.out.println("Котик не будет умываться, он голоден. Кормим котика");
                     eat();
-                    wash();
                 }
-                break;
+            break;
             case 5:
                 if (!spoilFurniture()) {
                     System.out.println("Котик не будет портить мебель, он голоден. Кормим котика");
                     eat();
-                    spoilFurniture();
                 }
-                break;
+            break;
             }
         }
 
