@@ -17,6 +17,6 @@ public class Application {
             System.out.println("Котики разговаривают не одинаково");
         }
 
-        System.out.print("Количество созданных котиков:" +Kotik.getCountKotik());
+        System.out.print("Количество созданных котиков:" + Kotik.getCountKotik());
     }
 }
