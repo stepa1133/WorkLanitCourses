@@ -18,7 +18,7 @@ public class Kotik {
         countKotik++;
     }
 
-    public Kotik(int prettiness, String name, int weight, String meow) {
+    public Kotik (int prettiness, String name, int weight, String meow) {
         this.prettiness = prettiness;
         this.name = name;
         this.weight = weight;
@@ -108,7 +108,7 @@ public class Kotik {
     public void eat(int valueSatiety) {
         satiety += valueSatiety;
     }
-    public void eat(int valueSatiety,String food) {
+    public void eat(int valueSatiety, String food) {
         satiety += valueSatiety;
     }
     public void eat() {
