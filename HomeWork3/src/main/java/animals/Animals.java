@@ -1,21 +1,25 @@
 package animals;
 
+import enums.AviarySize;
 import food.Food;
 
 public abstract class Animals {
+
     private int saturation;
     private String name;
+    AviarySize aviarySize;
 //---
     public Animals() {
         saturation = (int) (Math.random() * 100) + 1;
     }
 
-    public Animals(String name) {
+    public Animals(String name, AviarySize aviarySize) {
         this.name = name;
+        this.aviarySize = aviarySize;
         saturation = (int) (Math.random() * 100) + 1;
     }
 //---
-    public abstract void eat (Food food);
+    public abstract void eat (Food food) throws WrongFoodException;
 //---
     public int getSaturation() {
         return saturation;
@@ -36,5 +40,10 @@ public abstract class Animals {
 //---
     public void setName(String name) {
         this.name = name;
+    }
+//---
+
+    public AviarySize getAviarySize() {
+        return aviarySize;
     }
 }

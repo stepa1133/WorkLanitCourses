@@ -1,4 +1,5 @@
 package animals;
+import enums.AviarySize;
 import food.Food;
 import food.Grass;
 /*
@@ -12,17 +13,17 @@ public class Carnivore extends Animals {
     public Carnivore() {
     }
 
-    public Carnivore (String name) {
-        super(name);
+    public Carnivore (String name, AviarySize aviarySize) {
+        super(name, aviarySize);
     }
 
     @Override
-    public void eat(Food food) {
-
+    public void eat(Food food) throws WrongFoodException {
         if (food instanceof Grass){
             System.out.println("Данное животное плотоядное, оно не может кушать траву!");
-            return;
+            throw new WrongFoodException();
         }
+
 
 
         if (getSaturation() >= 100){

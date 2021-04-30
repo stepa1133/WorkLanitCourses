@@ -1,4 +1,5 @@
 import animals.Animals;
+import animals.WrongFoodException;
 import food.Food;
 import interfaces.Voice;
 
@@ -13,8 +14,10 @@ public class Worker {
         return name;
     }
 
-    void feed (Animals animal, Food food) {
-        animal.eat(food);
+    void feed (Animals animal, Food food)  {
+        try{
+            animal.eat(food);
+        }catch (WrongFoodException e){ System.out.println("Животное не будет это кушать");}
     }
 
     void getVoice (Animals animals) {

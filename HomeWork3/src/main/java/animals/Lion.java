@@ -1,5 +1,6 @@
 package animals;
 
+import enums.AviarySize;
 import interfaces.Run;
 import interfaces.Swim;
 import interfaces.Voice;
@@ -10,7 +11,7 @@ public class Lion extends Carnivore implements Run, Voice {
     }
 
     public Lion(String name) {
-        super(name);
+        super(name, AviarySize.BIG);
     }
 
     @Override
@@ -23,5 +24,18 @@ public class Lion extends Carnivore implements Run, Voice {
     @Override
     public String voice() {
         return "Аурррр";
+    }
+
+    @Override
+    public int hashCode() {
+        return getName().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) return true;
+        if (!(obj instanceof Bear)) return false;
+        Bear bear = (Bear) obj;
+        return bear.getName().equals(getName());
     }
 }

@@ -1,4 +1,5 @@
 import animals.*;
+import enums.AviarySize;
 import food.Food;
 import food.Grass;
 import food.Meat;
@@ -14,6 +15,7 @@ public class Zoo {
     private ArrayList <Swim> lakeAnimals = new ArrayList<>();
 
     private String name;
+
 
 
     public Zoo(String name) {
@@ -58,8 +60,51 @@ public class Zoo {
         zoo.lakeAnimals.add((Swim) zoo.allAnimals.get(3)); // Добавили объект класса Fish - "Немо" в список водоплавающих
         zoo.lakeAnimals.add((Swim) zoo.allAnimals.get(5)); // Добавили объект класса Shark - "Акулыч" в список водоплавающих
 
+/*
+ *  Создаем вольеры - для хищников и травоядных
+ */
+        Aviary <Carnivore> carnivoreAviary = new Aviary<>(AviarySize.VERY_BIG);
+        Aviary <Herbivore> herbivoreAviary = new Aviary<>(AviarySize.VERY_BIG);
+
+/*
+ *  Добавляем в вольер для хищников наших хищных животных из списка AllAnimals
+ */
+        carnivoreAviary.insertAnimalInAviary((Carnivore) zoo.allAnimals.get(0)); // Добавили в вольер хищника объект класса Bear - "Потап"
+        carnivoreAviary.insertAnimalInAviary((Carnivore) zoo.allAnimals.get(4)); // Добавили в вольер хищника объект класса Lion - "Шрам"
+        carnivoreAviary.insertAnimalInAviary((Carnivore) zoo.allAnimals.get(5)); // Добавили в вольер хищника объект класса Shark - "Акулыч"
+
+/*
+ *  Проверяем получение ссылки на животное из вольера по имени (Хищники)
+ */
+        System.out.println(carnivoreAviary.getLinkAnimal("Потап"));
+        System.out.println(carnivoreAviary.getLinkAnimal("Шрам"));
+        System.out.println(carnivoreAviary.getLinkAnimal("Акулыч"));
+
+/*
+ *  Добавляем в вольер для травоядных наших травоядных животных из списка AllAnimals
+ */
+        herbivoreAviary.insertAnimalInAviary((Herbivore) zoo.allAnimals.get(1)); // Добавили в вольер травоядное объект класса Chicken - "Цыпа"
+        herbivoreAviary.insertAnimalInAviary((Herbivore) zoo.allAnimals.get(2)); // Добавили в вольер травоядное объект класса Duck - "Дональд"
+        herbivoreAviary.insertAnimalInAviary((Herbivore) zoo.allAnimals.get(3)); // Добавили в вольер травоядное объект класса Fish - "Немо"
+
+/*
+ *  Проверяем получение ссылки на животное из вольера по имени (Травоядные)
+ */
+        System.out.println(herbivoreAviary.getLinkAnimal("Цыпа"));
+        System.out.println(herbivoreAviary.getLinkAnimal("Дональд"));
+        System.out.println(herbivoreAviary.getLinkAnimal("Немо"));
 
 
+/*
+ *  Удаляем животное из вольера
+ */
+        carnivoreAviary.deleteFromAviary((Carnivore) zoo.allAnimals.get(0)); // Попробуем удалить Bear - Потап
+        System.out.println(carnivoreAviary.getLinkAnimal("Потап"));    // Теперь Bear - Потап нету в вольере для хищников
+
+/*
+ *  Проверим работу исключения
+ */
+        zoo.allWorkers.get(0).feed(zoo.allAnimals.get(0),zoo.allFood.get(0));
 
 
     }
