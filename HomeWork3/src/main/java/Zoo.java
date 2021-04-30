@@ -60,74 +60,7 @@ public class Zoo {
 
 
 
-        zoo.startWork();
 
-    }
-
-    public void startWork() {
-
-
-
-
-
-/*        StringBuilder namesAnimal = new StringBuilder();
-        StringBuilder namesWorker = new StringBuilder();
-        StringBuilder namesLakeAnimals = new StringBuilder();
-
-
-        for (Animals animal : allAnimals){
-            namesAnimal.append(animal.getClass().getSimpleName() + "-" + animal.getName() + "\n");
-        }
-
-        for (Worker worker : allWorkers){
-            namesWorker.append(worker.getName() + "\n");
-        }
-
-        for (Animals animal : lakeAnimals){
-            namesLakeAnimals.append(animal.getClass().getSimpleName() + "-" + animal.getName() + "\n");
-        }
-
-        System.out.println(name + " приветствует посетителей!!\n"
-                           + "У нас есть такие животные, как:\n"
-                           +  namesAnimal.toString() + "\n"
-                           + "в пруду плавают:\n"
-                           + namesLakeAnimals + "\n"
-                           + "А сейчас наши доблестные работники :\n"
-                           + namesWorker.toString() + "будут кормить животных! И Заставлять их вызывать звуки!");
-l1:
-        for (int i = 0; i < allAnimals.size() ; i++) {
-            Animals currentAnimal = allAnimals.get(i);
-            for (int j = 0; j < allFood.size(); j++) {
-                Food currentFood = allFood.get(j);
-                System.out.println(allWorkers.get(0).getName() + " будет пробовать кормить животное "
-                                  + currentAnimal.getClass().getSimpleName() + " по имени " + currentAnimal.getName()
-                                  + " едой - " + currentFood.getName());
-                System.out.println("Текущий уровень сытости животного "
-                                  + currentAnimal.getClass().getSimpleName() + " по имени " + currentAnimal.getName()
-                                  + " - " + currentAnimal.getSaturation() + "%");
-
-
-                if (currentAnimal.getSaturation() >= 100){
-                    System.out.println(currentAnimal.getClass().getSimpleName() + " по имени " + currentAnimal.getName() +" наелось\n");
-                    continue l1;
-                }
-                else {
-                    allWorkers.get(0).feed(currentAnimal, currentFood);
-                    System.out.println("\n");
-                }
-            }
-        }
-
-
-        System.out.println("За работы приступает " + allWorkers.get(1).getName() + ", она будет мучить животных");
-
-        for (Animals currentAnimal : allAnimals){
-            if (currentAnimal instanceof Voice){
-                System.out.println(currentAnimal.getClass().getSimpleName() + " по имени " + currentAnimal.getName()
-                                  +" издаёт звук - "
-                                  + ((Voice) currentAnimal).voice());
-            }
-        }*/
 
     }
 }
