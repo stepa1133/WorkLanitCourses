@@ -98,7 +98,7 @@ public class Zoo {
 /*
  *  Удаляем животное из вольера
  */
-        carnivoreAviary.deleteFromAviary((Carnivore) zoo.allAnimals.get(0)); // Попробуем удалить Bear - Потап
+        carnivoreAviary.deleteFromAviary(zoo.allAnimals.get(0)); // Попробуем удалить Bear - Потап
         System.out.println(carnivoreAviary.getLinkAnimal("Потап"));    // Теперь Bear - Потап нету в вольере для хищников
 
 /*

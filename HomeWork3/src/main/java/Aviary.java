@@ -18,7 +18,7 @@ public class Aviary <X extends Animals> {
     }
 
     public void insertAnimalInAviary (X animal) {
-        if (animal.getAviarySize() == this.size){
+        if (animal.getAviarySize().ordinal() <= this.size.ordinal()){
             aviaryWithAnimals.put(animal.getName(),animal);
         }
         else {
@@ -26,7 +26,7 @@ public class Aviary <X extends Animals> {
         }
     }
 
-    public void deleteFromAviary (X animal){
+    public void deleteFromAviary (Animals animal){
         aviaryWithAnimals.remove(animal.getName());
     }
 
