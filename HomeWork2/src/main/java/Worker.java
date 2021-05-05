@@ -17,13 +17,15 @@ public class Worker {
         animal.eat(food);
     }
 
-    void getVoice (Animals animals) {
-        if (animals instanceof Voice) {
+    void getVoice (Voice animal) {
+/*        if (animals instanceof Voice) {
             System.out.println(((Voice) animals).voice());
         }
         else {
             System.out.println(animals.getClass().getSimpleName() + " не умеет подавать голос!");
-        }
+        }*/
+
+        System.out.println(animal.voice());
     }
 
 }

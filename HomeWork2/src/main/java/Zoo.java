@@ -9,9 +9,8 @@ import java.util.ArrayList;
 
 public class Zoo {
     private ArrayList<Animals> allAnimals = new ArrayList<>();
-    private ArrayList <Worker> allWorkers = new ArrayList<>();
     private ArrayList <Food> allFood = new ArrayList<>();
-    private ArrayList <Animals> lakeAnimals = new ArrayList<>();
+    private ArrayList <Swim> lakeAnimals = new ArrayList<>();
 
     private String name;
 
@@ -30,8 +29,9 @@ public class Zoo {
         zoo.allAnimals.add(new Lion("Шрам"));
         zoo.allAnimals.add(new Shark("Акулыч"));
 
-        zoo.allWorkers.add(new Worker("Михалыч"));
-        zoo.allWorkers.add(new Worker("Клавдия Михайловна"));
+
+
+        Worker worker = new Worker("Клавдия Михайловна");
 
         zoo.allFood.add(new Grass("Подорожник"));
         zoo.allFood.add(new Grass("Сено"));
@@ -40,75 +40,32 @@ public class Zoo {
         zoo.allFood.add(new Meat("Тушенка"));
         zoo.allFood.add(new Meat("Свинина"));
 
-        for (Animals animal : zoo.allAnimals) {
-            if (animal instanceof Swim){
-                zoo.lakeAnimals.add(animal);
+        zoo.lakeAnimals.add((Swim)zoo.allAnimals.get(1)); //Chicken
+        zoo.lakeAnimals.add((Swim)zoo.allAnimals.get(2)); //Duck
+        zoo.lakeAnimals.add((Swim)zoo.allAnimals.get(3)); //Fish
+        zoo.lakeAnimals.add((Swim)zoo.allAnimals.get(5)); //Shark
+
+        for (Swim swimAnimal: zoo.lakeAnimals){
+            swimAnimal.swim();
+        }
+        
+
+        for (int i = 0; i < zoo.allAnimals.size()-1 ; i++) {
+            for (int j = 0; j < zoo.allFood.size()-1; j++) {
+                worker.feed(zoo.allAnimals.get(i),zoo.allFood.get(j));
             }
         }
 
-        zoo.startWork();
-
-    }
-
-    public void startWork() {
-        StringBuilder namesAnimal = new StringBuilder();
-        StringBuilder namesWorker = new StringBuilder();
-        StringBuilder namesLakeAnimals = new StringBuilder();
+        worker.getVoice((Voice) zoo.allAnimals.get(0));
+        worker.getVoice((Voice) zoo.allAnimals.get(1));
+        worker.getVoice((Voice) zoo.allAnimals.get(2));
+        worker.getVoice((Voice) zoo.allAnimals.get(4));
 
 
-        for (Animals animal : allAnimals){
-            namesAnimal.append(animal.getClass().getSimpleName() + "-" + animal.getName() + "\n");
-        }
-
-        for (Worker worker : allWorkers){
-            namesWorker.append(worker.getName() + "\n");
-        }
-
-        for (Animals animal : lakeAnimals){
-            namesLakeAnimals.append(animal.getClass().getSimpleName() + "-" + animal.getName() + "\n");
-        }
-
-        System.out.println(name + " приветствует посетителей!!\n"
-                           + "У нас есть такие животные, как:\n"
-                           +  namesAnimal.toString() + "\n"
-                           + "в пруду плавают:\n"
-                           + namesLakeAnimals + "\n"
-                           + "А сейчас наши доблестные работники :\n"
-                           + namesWorker.toString() + "будут кормить животных! И Заставлять их вызывать звуки!");
-l1:
-        for (int i = 0; i < allAnimals.size() ; i++) {
-            Animals currentAnimal = allAnimals.get(i);
-            for (int j = 0; j < allFood.size(); j++) {
-                Food currentFood = allFood.get(j);
-                System.out.println(allWorkers.get(0).getName() + " будет пробовать кормить животное "
-                                  + currentAnimal.getClass().getSimpleName() + " по имени " + currentAnimal.getName()
-                                  + " едой - " + currentFood.getName());
-                System.out.println("Текущий уровень сытости животного "
-                                  + currentAnimal.getClass().getSimpleName() + " по имени " + currentAnimal.getName()
-                                  + " - " + currentAnimal.getSaturation() + "%");
 
 
-                if (currentAnimal.getSaturation() >= 100){
-                    System.out.println(currentAnimal.getClass().getSimpleName() + " по имени " + currentAnimal.getName() +" наелось\n");
-                    continue l1;
-                }
-                else {
-                    allWorkers.get(0).feed(currentAnimal, currentFood);
-                    System.out.println("\n");
-                }
-            }
-        }
 
 
-        System.out.println("За работы приступает " + allWorkers.get(1).getName() + ", она будет мучить животных");
-
-        for (Animals currentAnimal : allAnimals){
-            if (currentAnimal instanceof Voice){
-                System.out.println(currentAnimal.getClass().getSimpleName() + " по имени " + currentAnimal.getName()
-                                  +" издаёт звук - "
-                                  + ((Voice) currentAnimal).voice());
-            }
-        }
 
     }
 }
